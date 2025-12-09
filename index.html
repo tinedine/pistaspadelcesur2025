@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ReservaPadel - Iniciar sesión</title>
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Estilos rápidos para la página */
+    :root{
+      --accent: #1f8a70; /* verde-agua */
+    }
+    body{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: linear-gradient(180deg, #eef7f4 0%, #ffffff 60%);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    .auth-card{
+      max-width:980px;
+      width:100%;
+      border-radius:12px;
+      box-shadow:0 8px 30px rgba(18,38,40,0.08);
+      overflow:hidden;
+    }
+    .left-panel{
+      background: url('https://images.unsplash.com/photo-1509228627159-645f5f0a4f6d?q=80&w=1400&auto=format&fit=crop&crop=faces') center/cover no-repeat;
+      min-height:420px;
+    }
+    .brand{
+      font-weight:700;
+      color:var(--accent);
+      letter-spacing:0.2px;
+    }
+    .social-btn{
+      border:1px solid rgba(0,0,0,0.08);
+    }
+    .form-small-note{font-size:0.9rem;color:#6b7280}
+  </style>
+</head>
+<body>
+  <main class="container p-4">
+    <div class="auth-card bg-white row g-0 mx-auto">
+      <!-- Izquierda: imagen promocional / info -->
+      <div class="col-md-6 left-panel d-none d-md-block">
+	  <img loading="lazy" decoding="async" width="500" height="300" src="https://www.verdepadel.com/wp-content/uploads/2022/03/construccion-pistas-de-padel-panoramica.webp" alt="" class="wp-image-9772" style="width:350px" srcset="https://verdepadel.com/wp-content/uploads/2022/03/construccion-pistas-de-padel-panoramica.webp 1600w, https://verdepadel.com/wp-content/uploads/2022/03/construccion-pistas-de-padel-panoramica-768x432.webp 768w" sizes="auto, (max-width: 1600px) 100vw, 1600px">
+	  
+	  </div>
+
+      <!-- Derecha: formulario -->
+      <div class="col-12 col-md-6 p-4 p-md-5">
+        <div class="d-flex align-items-center justify-content-between mb-3">
+          <div>
+            <h1 class="h4 mb-0 brand">ReservaPadel</h1>
+            <p class="mb-0 text-muted">Sistema de reservas de pistas online</p>
+          </div>
+          <div class="text-end d-none d-md-block">
+            <small class="text-muted">¿Nuevo? <a href="#registerModal" data-bs-toggle="modal">Crea una cuenta</a></small>
+          </div>
+        </div>
+
+        <h2 class="h5 mt-2">Inicia sesión</h2>
+        <p class="text-muted form-small-note">Accede para ver y reservar pistas, gestionar tus reservas y ver historial.</p>
+
+        <!-- Social logins (simulados) -->
+        <div class="d-flex gap-2 mb-3">
+          <button class="btn social-btn w-100" type="button" aria-label="Iniciar sesión con Google">
+            <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google" width="18" class="me-2"> Google
+          </button>
+          <button class="btn social-btn w-100" type="button" aria-label="Iniciar sesión con Apple">
+            <img src="https://www.svgrepo.com/show/303128/apple-logo.svg" alt="Apple" width="18" class="me-2"> Apple
+          </button>
+        </div>
+
+        <div class="text-center my-3"><small class="text-muted">o</small></div>
+
+        <!-- Formulario de login -->
+        <form id="loginForm" novalidate>
+          <div class="mb-3">
+            <label for="email" class="form-label">Correo electrónico</label>
+            <input type="email" class="form-control" id="email" name="email" required aria-describedby="emailHelp" placeholder="tu@ejemplo.com">
+            <div id="emailHelp" class="form-text">Usa el correo con el que te registraste.</div>
+            <div class="invalid-feedback">Introduce un correo válido.</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="password" class="form-label">Contraseña</label>
+            <div class="input-group">
+              <input type="password" class="form-control" id="password" name="password" required minlength="6" placeholder="••••••••">
+              <button class="btn btn-outline-secondary" type="button" id="togglePassword" aria-label="Mostrar contraseña">👁️</button>
+              <div class="invalid-feedback">La contraseña debe tener al menos 6 caracteres.</div>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="rememberMe">
+              <label class="form-check-label" for="rememberMe">Recuérdame</label>
+            </div>
+            <div>
+              <a href="#forgotModal" data-bs-toggle="modal">¿Has olvidado la contraseña?</a>
+            </div>
+          </div>
+
+          <div class="d-grid mb-3">
+            <button class="btn btn-primary" type="submit">Entrar</button>
+          </div>
+
+          <div class="text-center">
+            <small class="text-muted">Al entrar aceptas nuestras <a href="#">Condiciones</a> y la <a href="#">Política de Privacidad</a>.</small>
+          </div>
+        </form>
+
+        <hr class="my-4">
+
+        <div class="text-center d-md-none">
+          <small class="text-muted">¿No tienes cuenta? <a href="#registerModal" data-bs-toggle="modal">Regístrate</a></small>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal: Registro -->
+  <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="registerModalLabel">Crear cuenta</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <form id="registerForm" novalidate>
+            <div class="mb-3">
+              <label for="name" class="form-label">Nombre completo</label>
+              <input type="text" id="name" class="form-control" required>
+              <div class="invalid-feedback">Introduce tu nombre.</div>
+            </div>
+            <div class="mb-3">
+              <label for="regEmail" class="form-label">Correo electrónico</label>
+              <input type="email" id="regEmail" class="form-control" required>
+              <div class="invalid-feedback">Introduce un correo válido.</div>
+            </div>
+            <div class="mb-3">
+              <label for="regPassword" class="form-label">Contraseña</label>
+              <input type="password" id="regPassword" class="form-control" minlength="6" required>
+              <div class="form-text">Mínimo 6 caracteres.</div>
+              <div class="invalid-feedback">La contraseña es demasiado corta.</div>
+            </div>
+            <div class="d-grid">
+              <button type="submit" class="btn btn-success">Crear cuenta</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Recuperar contraseña -->
+  <div class="modal fade" id="forgotModal" tabindex="-1" aria-labelledby="forgotModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="forgotModalLabel">Recuperar contraseña</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <form id="forgotForm" novalidate>
+            <div class="mb-3">
+              <label for="forgotEmail" class="form-label">Correo electrónico</label>
+              <input type="email" id="forgotEmail" class="form-control" required>
+              <div class="invalid-feedback">Introduce el correo con el que te registraste.</div>
+            </div>
+            <div class="d-grid">
+              <button type="submit" class="btn btn-outline-primary">Enviar enlace de recuperación</button>
+            </div>
+            <small class="text-muted mt-2 d-block">Recibirás un correo con instrucciones para restablecer tu contraseña.</small>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS + pequeño script para validación y toggles -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Toggle mostrar/ocultar contraseña
+    document.getElementById('togglePassword').addEventListener('click', function(){
+      const pwd = document.getElementById('password');
+      if(pwd.type === 'password') { pwd.type = 'text'; this.textContent = '🙈'; }
+      else { pwd.type = 'password'; this.textContent = '👁️'; }
+      pwd.focus();
+    });
+
+    // Validación Bootstrap personalizada
+    (function () {
+      'use strict'
+      const forms = document.querySelectorAll('form')
+      Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+          form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            } else {
+              event.preventDefault(); // evitar envío real en demo
+              // Aquí integrarías llamada a tu API (fetch/axios) para autenticar/registrar
+              if(form.id === 'loginForm'){
+                const email = form.querySelector('[name=email]').value;
+                const remember = document.getElementById('rememberMe').checked;
+                // Demo: mostrar info
+                alert('Iniciando sesión: ' + email + (remember? ' (recordar)':'') );
+                // redirigir a panel de usuario (ejemplo): window.location.href = '/panel';
+              } else if(form.id === 'registerForm'){
+                alert('Cuenta creada (demo). Revisa tu correo para verificar.');
+                const modal = bootstrap.Modal.getInstance(document.getElementById('registerModal'));
+                modal.hide();
+              } else if(form.id === 'forgotForm'){
+                alert('Enlace de recuperación enviado (demo).');
+                const modal = bootstrap.Modal.getInstance(document.getElementById('forgotModal'));
+                modal.hide();
+              }
+            }
+            form.classList.add('was-validated')
+          }, false)
+        })
+    })()
+  </script>
+</body>
+</html>
